@@ -27,6 +27,7 @@ body{
     grid-template-columns: repeat(3,100px);
     grid-template-rows: repeat(3,100px);
     justify-content: center;
+    position: relative;
 }
 .inp-box{
     display: flex;
@@ -48,6 +49,51 @@ body{
     content: "O";
     color: red;
 }
+.line{
+    /* width: 36%; */
+    height: 0.7vh;
+    background: #000;
+    position: absolute;
+    z-index: 2;
+    /* right: 0%; */
+    /* left: 32%; */
+}
+/* .winr{
+    transform: rotate(90deg);
+    left: 10rem;
+    top: 9.2rem;
+} */
+/* .winmr{
+    transform: rotate(90deg);
+        left: 16.5rem;
+        top: 9.2rem;
+} */
+/* .winl{
+    transform: rotate(90deg);
+        left: 22.5rem;
+        top: 9.2rem;
+} */
+/* .wint{
+    top: 3.5rem;
+} */
+/* .winm{
+    top: 9.5rem;
+} */
+/* .winb{
+    top: 15.5rem;
+} */
+/* .winlr{
+    width: 50%;
+        transform: rotate(135deg);
+        top: 9.2rem;
+        left: 13rem;
+} */
+/* .winrl{
+    width: 50%;
+    transform: rotate(225deg);
+    top: 9.2rem;
+    left: 13rem;
+} */
 .mbline{
     border: 2px solid black;
 }

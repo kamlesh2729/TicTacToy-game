@@ -2,6 +2,7 @@ const inpBtn = document.querySelectorAll('[data-box]');
 const winLos = document.getElementById('WinLos');
 const newgame = document.getElementById('NewGame');
 const restart = document.getElementById('Restart');
+const Winline = document.querySelector('.line');
 
 const winPatterns = [
   [0, 1, 2],
@@ -14,8 +15,8 @@ const winPatterns = [
   [2, 4, 6], // diagonals
 ];
 
-// newgame.addEventListener('click',);
-// restart.addEventListener('click',);
+
+
 let playerX = "X";
 let playerO = "O";
 let firstPlayer = true;
@@ -41,6 +42,24 @@ const showWinner = (winner) => {
 
 }
 
+const enablesbox = () => {
+  for (let box of inpBtn) {
+    box.disabled = false;
+    box.innerHTML = '';
+    
+  }
+ }
+
+const disablesbox = () => {
+  for (let box of inpBtn) {
+    box.disabled = true;
+  }
+}
+
+const winline = () => {
+  
+}
+
 const checkWinner = () => {
   for (let pattern of winPatterns) {
     let pos1Val = inpBtn[pattern[0]].innerText;
@@ -50,8 +69,27 @@ const checkWinner = () => {
     if (pos1Val != "" && pos2Val != "" && pos3Val !="") {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
         secondPlayer = false;
+        disablesbox();
         showWinner(pos1Val); 
       }
     }
+    const winpat = [pos1Val, pos2Val, pos3Val];
+    console.log(winpat);
 }  
 }
+
+const newG = () => {
+  if (checkWinner) {
+    firstPlayer = true;
+    enablesbox();
+    winLos.innerText = "Who's Winner ?";
+  }
+}
+
+const reStart = () => {
+  firstPlayer = true;
+  enablesbox();
+}
+
+newgame.addEventListener("click", newG);
+restart.addEventListener("click", reStart);
